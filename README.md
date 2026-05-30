@@ -131,7 +131,7 @@ After every verification, a receipt is written to **Sui mainnet** containing:
 ### Setup
 
 ```bash
-git clone https://github.com/YOUR_USERNAME/verity.git
+git clone https://github.com/Megacollins/Verity.git
 cd verity
 npm install
 ```
