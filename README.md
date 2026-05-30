@@ -1,5 +1,7 @@
 # Verity — Trust Infrastructure for Autonomous AI
 
+> **Live demo:** https://verity-neon.vercel.app
+>
 > Built for the [Tatum × Walrus Hackathon 2025](https://tatum.io/tatum-x-walrus-hackathon)
 
 Verity is an autonomous invoice verification layer that prevents fraudulent payments before AI systems execute them.
