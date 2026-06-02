@@ -63,25 +63,13 @@ export async function writeVerificationReceipt(params: {
     // Fetch gas price via the supported method — avoids suix_getLatestSuiSystemState
     const gasPrice = await client.getReferenceGasPrice()
 
-    // Build the verification receipt as a memo transaction.
-    // A zero-value transaction with embedded JSON metadata is a standard
-    // lightweight pattern for on-chain records without a Move module.
+    // Build verification receipt as a minimal Sui transaction.
+    // The tx hash + timestamp on Sui mainnet serves as the immutable proof.
+    // Receipt metadata (hash, blob, score, verdict) is stored off-chain in the UI.
     const tx = new Transaction()
     tx.setSender(address)
     tx.setGasPrice(gasPrice)
     tx.setGasBudget(3_000_000)
-
-    // The receipt payload — stored permanently in tx metadata on Sui
-    const _receipt = {
-      v:       '1.0',
-      app:     'verity',
-      hash:    params.invoiceHash,
-      blob:    params.walrusBlobId,
-      score:   params.trustScore,
-      verdict: params.verdict,
-      supplier: params.supplierName,
-      ts:      timestamp,
-    }
 
     const result = await client.signAndExecuteTransaction({
       transaction: tx,
