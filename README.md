@@ -1,6 +1,6 @@
 # Verity — Trust Infrastructure for Autonomous AI
 
-> **Live demo:** https://verity-neon.vercel.app
+> **Live demo:** https://verity-io.vercel.app
 >
 > Built for the [Tatum × Walrus Hackathon 2025](https://tatum.io/tatum-x-walrus-hackathon)
 
