@@ -189,6 +189,46 @@ Write audit receipt to Sui mainnet via Tatum → returns transaction hash.
 
 ---
 
+## MCP Integration
+
+Verity ships an MCP server so AI agents can verify invoices directly — no PDF upload required.
+
+### Available Tools
+
+| Tool | Description |
+|---|---|
+| `verify_invoice` | Full verification pipeline — returns trust score, verdict, risk factors |
+| `check_supplier` | Quick registry lookup — checks if supplier + IBAN is trusted |
+| `get_verification_result` | Plain-language explanation of a trust score and what to do |
+
+### Claude Desktop Setup
+
+Add to `~/.claude/claude_desktop_config.json`:
+
+```json
+{
+  "mcpServers": {
+    "verity": {
+      "command": "npx",
+      "args": ["tsx", "/path/to/verity/mcp/server.ts"],
+      "env": {
+        "VERITY_API_URL": "https://verity-io.vercel.app"
+      }
+    }
+  }
+}
+```
+
+Then ask Claude: *"Check if this invoice from Acme Logistics with IBAN DE89370400440532013000 should be approved"*
+
+### Run locally
+
+```bash
+npm run mcp
+```
+
+---
+
 ## Built by
 
 **Megacollins** — Tatum × Walrus Hackathon 2025
