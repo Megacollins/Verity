@@ -148,7 +148,7 @@ function generateLegitimate() {
     company: 'Acme Logistics Ltd',
     address: 'Keizersgracht 241\nAmsterdam, 1016 DX\nNetherlands',
     iban: 'NL91ABNA0417164300',
-    invoiceId: 'INV-2025-0542',
+    invoiceId: 'INV-2025-0543',
     amount: 4750,
     date: '2026-05-12',
     dueDate: '2026-06-12',
