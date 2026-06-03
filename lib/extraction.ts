@@ -13,7 +13,7 @@ import { ExtractedInvoice } from '@/types'
 
 export const DEMO_INVOICES: Record<string, ExtractedInvoice> = {
   legitimate: {
-    invoiceId: 'INV-2025-0542',
+    invoiceId: 'INV-2025-0543',
     supplierName: 'Acme Logistics Ltd',
     supplierEmail: 'invoices@acme-logistics.com',
     iban: 'NL91ABNA0417164300',
@@ -24,7 +24,7 @@ export const DEMO_INVOICES: Record<string, ExtractedInvoice> = {
     description: 'Freight forwarding services — Rotterdam to Amsterdam, April 2025',
   },
   fraudulent: {
-    invoiceId: 'INV-2025-0542',              // SAME ID as legitimate — duplicate!
+    invoiceId: 'INV-2025-0542',              // Same ID as legitimate — triggers duplicate check
     supplierName: 'Acme Logistics Ltd',       // Same name — social engineering
     supplierEmail: 'invoices@acme-log1stics.com', // Typosquatted email
     iban: 'DE89370400440532013000',           // DIFFERENT IBAN — critical fraud signal
@@ -102,7 +102,11 @@ If a field cannot be found, use an empty string. Never return null.`,
     }
   }
 
-  // Final fallback — return legitimate demo data
+  // Final fallback — return legitimate demo data with a unique invoice ID
+  // so repeat uploads of different files never trigger duplicate detection
   console.log('📄 Falling back to demo invoice data')
-  return DEMO_INVOICES.legitimate
+  return {
+    ...DEMO_INVOICES.legitimate,
+    invoiceId: `INV-2025-${Date.now().toString().slice(-4)}`,
+  }
 }
