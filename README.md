@@ -1,6 +1,7 @@
 # Verity — Trust Infrastructure for Autonomous AI
 
 > **Live demo:** https://verity-io.vercel.app
+> **Demo video:** https://www.loom.com/share/b909a4e786274f868713298ee6992e02
 >
 > Built for the [Tatum × Walrus Hackathon 2025](https://tatum.io/tatum-x-walrus-hackathon)
 
