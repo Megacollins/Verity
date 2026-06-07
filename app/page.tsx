@@ -791,7 +791,7 @@ export default function LandingPage() {
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto px-8 md:px-16 pt-16 pb-10">
+        <div className="relative max-w-7xl mx-auto px-8 md:px-16 pt-16 pb-0">
 
           {/* ── Top section — 4 columns ─────────────────────────────── */}
           <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-14">
@@ -936,12 +936,12 @@ export default function LandingPage() {
           </div>
 
           {/* ── Mega wordmark — editorial flourish ────────────────────── */}
-          <div className="mt-14 pt-8 border-t border-white/[0.04] overflow-hidden">
+          <div className="mt-6 overflow-hidden">
             <p
-              className="text-center font-bold tracking-[-0.04em] leading-none select-none"
+              className="text-center font-bold tracking-[-0.04em] leading-[0.85] select-none -mb-4"
               style={{
                 fontSize: 'clamp(64px, 14vw, 180px)',
-                background: 'linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 100%)',
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.05) 0%, transparent 100%)',
                 WebkitBackgroundClip: 'text',
                 WebkitTextFillColor: 'transparent',
                 backgroundClip: 'text',
