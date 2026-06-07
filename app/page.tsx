@@ -780,26 +780,175 @@ export default function LandingPage() {
       <DocsSection />
       <PricingSection />
 
-      {/* Footer */}
-      <footer className="border-t border-white/5 px-8 md:px-16 py-7">
-        <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center justify-between gap-4">
-          <div className="flex items-center gap-2">
-            <div className="w-5 h-5 rounded overflow-hidden border border-white/10 shrink-0">
-              <Image src="/hero.jpg" alt="Verity" width={20} height={20}
-                className="object-cover"
-            style={{ objectPosition: '62% 18%', filter: 'brightness(1.3) contrast(1.1)' }} />
+      {/* ── FOOTER ───────────────────────────────────────────────────────── */}
+      <footer className="relative border-t border-white/[0.06] mt-12">
+
+        {/* Ambient glow behind footer */}
+        <div
+          className="absolute inset-0 pointer-events-none"
+          style={{
+            background: 'radial-gradient(ellipse 60% 80% at 50% 100%, rgba(74,222,128,0.025), transparent 70%)',
+          }}
+        />
+
+        <div className="relative max-w-7xl mx-auto px-8 md:px-16 pt-16 pb-10">
+
+          {/* ── Top section — 4 columns ─────────────────────────────── */}
+          <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-14">
+
+            {/* Brand column */}
+            <div className="col-span-2 md:col-span-4">
+              <div className="flex items-center gap-2.5 mb-5">
+                <div className="w-7 h-7 rounded-lg overflow-hidden border border-white/10 shrink-0">
+                  <Image
+                    src="/hero.jpg" alt="Verity" width={28} height={28}
+                    className="object-cover"
+                    style={{ objectPosition: '62% 18%', filter: 'brightness(1.3) contrast(1.1)' }}
+                  />
+                </div>
+                <span className="text-white font-semibold tracking-[0.18em] text-sm uppercase">Verity</span>
+              </div>
+              <p className="text-white/35 text-sm leading-relaxed max-w-[260px] mb-6">
+                Trust infrastructure for autonomous AI. Verify invoices before AI systems execute financial transactions.
+              </p>
+              {/* Status pill */}
+              <div className="inline-flex items-center gap-2 px-2.5 py-1 rounded-full border border-[#4ade80]/15 bg-[#4ade80]/[0.04]">
+                <span className="relative flex h-1.5 w-1.5">
+                  <span className="absolute inline-flex h-full w-full rounded-full bg-[#4ade80] opacity-60 animate-ping" />
+                  <span className="relative inline-flex rounded-full h-1.5 w-1.5 bg-[#4ade80]" />
+                </span>
+                <span className="text-[#4ade80]/80 text-[11px] font-medium">All systems operational</span>
+              </div>
             </div>
-            <span className="text-white/30 text-xs font-semibold tracking-[0.2em] uppercase">Verity</span>
+
+            {/* Product column */}
+            <div className="col-span-1 md:col-span-2 md:col-start-6">
+              <p className="text-white/40 text-[11px] uppercase tracking-[0.18em] font-semibold mb-5">Product</p>
+              <ul className="space-y-3">
+                {[
+                  { label: 'Overview',    href: '#product'      },
+                  { label: 'How it Works', href: '#how-it-works' },
+                  { label: 'Security',    href: '#security'     },
+                  { label: 'Pricing',     href: '#pricing'      },
+                ].map(({ label, href }) => (
+                  <li key={label}>
+                    <a href={href} className="text-white/45 text-[13px] hover:text-white/85 transition-colors duration-200">
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+
+            {/* Developers column */}
+            <div className="col-span-1 md:col-span-2">
+              <p className="text-white/40 text-[11px] uppercase tracking-[0.18em] font-semibold mb-5">Developers</p>
+              <ul className="space-y-3">
+                <li>
+                  <a href="#developers" className="text-white/45 text-[13px] hover:text-white/85 transition-colors duration-200">
+                    API Reference
+                  </a>
+                </li>
+                <li>
+                  <a href="#docs" className="text-white/45 text-[13px] hover:text-white/85 transition-colors duration-200">
+                    Documentation
+                  </a>
+                </li>
+                <li>
+                  <a href="https://github.com/Megacollins/Verity" target="_blank" rel="noopener noreferrer"
+                    className="inline-flex items-center gap-1 text-white/45 text-[13px] hover:text-white/85 transition-colors duration-200">
+                    GitHub <ArrowUpRight className="w-3 h-3" />
+                  </a>
+                </li>
+                <li>
+                  <Link href="/dashboard" className="text-white/45 text-[13px] hover:text-white/85 transition-colors duration-200">
+                    Dashboard
+                  </Link>
+                </li>
+                <li>
+                  <Link href="/audit" className="text-white/45 text-[13px] hover:text-white/85 transition-colors duration-200">
+                    Audit Trail
+                  </Link>
+                </li>
+              </ul>
+            </div>
+
+            {/* Powered by column */}
+            <div className="col-span-2 md:col-span-3 md:col-start-10">
+              <p className="text-white/40 text-[11px] uppercase tracking-[0.18em] font-semibold mb-5">Infrastructure</p>
+              <ul className="space-y-3">
+                {[
+                  { name: 'Walrus', desc: 'Decentralised storage',  href: 'https://walrus.site' },
+                  { name: 'Sui',    desc: 'Mainnet receipts',       href: 'https://sui.io'      },
+                  { name: 'Tatum',  desc: 'RPC infrastructure',     href: 'https://tatum.io'    },
+                  { name: 'OpenAI', desc: 'Field extraction',       href: 'https://openai.com'  },
+                ].map(({ name, desc, href }) => (
+                  <li key={name}>
+                    <a href={href} target="_blank" rel="noopener noreferrer"
+                      className="group flex items-baseline justify-between gap-3 text-[13px]">
+                      <span className="text-white/45 group-hover:text-white/85 transition-colors duration-200">{name}</span>
+                      <span className="text-white/20 text-[11px]">{desc}</span>
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
           </div>
-          <p className="text-white/15 text-xs text-center">
-            Built for the Tatum × Walrus Hackathon 2025 · Walrus Storage · Sui Mainnet · Tatum RPC
-          </p>
-          <p className="text-white/20 text-xs">
-            Built by <span className="text-white/40 font-medium">Megacollins</span>
-          </p>
-          <div className="flex items-center gap-1.5">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#4ade80] animate-pulse" />
-            <span className="text-white/20 text-xs">Live on mainnet</span>
+
+          {/* ── Hairline divider ────────────────────────────────────────── */}
+          <div className="h-px bg-gradient-to-r from-transparent via-white/8 to-transparent mb-8" />
+
+          {/* ── Bottom bar ──────────────────────────────────────────────── */}
+          <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+
+            {/* Left: copyright + built by */}
+            <div className="flex flex-col md:flex-row items-center gap-2 md:gap-5 text-[12px]">
+              <span className="text-white/25">© {new Date().getFullYear()} Verity. All rights reserved.</span>
+              <span className="hidden md:inline text-white/10">·</span>
+              <span className="text-white/25">
+                Built by{' '}
+                <a
+                  href="https://x.com/Megacollins" target="_blank" rel="noopener noreferrer"
+                  className="text-white/55 font-medium hover:text-white transition-colors"
+                >
+                  Megacollins
+                </a>
+              </span>
+            </div>
+
+            {/* Right: legal links + hackathon credit */}
+            <div className="flex items-center gap-5 text-[12px]">
+              <a
+                href="https://tatum.io/tatum-x-walrus-hackathon" target="_blank" rel="noopener noreferrer"
+                className="text-white/25 hover:text-white/55 transition-colors"
+              >
+                Tatum × Walrus Hackathon 2025
+              </a>
+              <span className="text-white/10">·</span>
+              <a
+                href="https://github.com/Megacollins/Verity/blob/main/README.md"
+                target="_blank" rel="noopener noreferrer"
+                className="text-white/25 hover:text-white/55 transition-colors"
+              >
+                Docs
+              </a>
+            </div>
+          </div>
+
+          {/* ── Mega wordmark — editorial flourish ────────────────────── */}
+          <div className="mt-14 pt-8 border-t border-white/[0.04] overflow-hidden">
+            <p
+              className="text-center font-bold tracking-[-0.04em] leading-none select-none"
+              style={{
+                fontSize: 'clamp(64px, 14vw, 180px)',
+                background: 'linear-gradient(180deg, rgba(255,255,255,0.04) 0%, transparent 100%)',
+                WebkitBackgroundClip: 'text',
+                WebkitTextFillColor: 'transparent',
+                backgroundClip: 'text',
+              }}
+            >
+              VERITY
+            </p>
           </div>
         </div>
       </footer>
