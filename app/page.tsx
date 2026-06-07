@@ -781,7 +781,7 @@ export default function LandingPage() {
       <PricingSection />
 
       {/* ── FOOTER ───────────────────────────────────────────────────────── */}
-      <footer className="relative border-t border-white/[0.06] mt-12">
+      <footer className="relative border-t border-white/[0.06]">
 
         {/* Ambient glow behind footer */}
         <div
@@ -791,7 +791,7 @@ export default function LandingPage() {
           }}
         />
 
-        <div className="relative max-w-7xl mx-auto px-8 md:px-16 pt-16 pb-0">
+        <div className="relative max-w-7xl mx-auto px-8 md:px-16 pt-10 pb-0">
 
           {/* ── Top section — 4 columns ─────────────────────────────── */}
           <div className="grid grid-cols-2 md:grid-cols-12 gap-8 md:gap-12 mb-14">
